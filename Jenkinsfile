@@ -19,9 +19,11 @@ pipeline {
         }
 
         stage('Post Test') {
-            post {
+            steps {
                 always {
-                    junit '**/TEST*.xml'
+                    dir('trailrunner') {
+                        junit '**/TEST*.xml'
+                    }
                 }
             }
         }
