@@ -17,5 +17,13 @@ pipeline {
                 }
             }
         }
+
+        stage('Post Test') {
+            post {
+                always {
+                    junit '**/TEST*.xml'
+                }
+            }
+        }
     }
 }
