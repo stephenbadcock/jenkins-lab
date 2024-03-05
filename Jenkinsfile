@@ -20,11 +20,7 @@ pipeline {
 
         stage('Post Test') {
             steps {
-            }
-            post {
-                always {
-                    junit '**/TEST*.xml'
-                }
+                junit '**/TEST*.xml'
             }
         }
     }
