@@ -23,5 +23,13 @@ pipeline {
                 junit '**/TEST*.xml'
             }
         }
+
+        stage('Run Robot and Post Test') {
+            steps {
+                dir('Selenium/infotivCarRental/tests') {
+                    bat script: 'robot --nostatusrc carRental.robot', returnStatus: true
+                }
+            }
+        }
     }
 }
