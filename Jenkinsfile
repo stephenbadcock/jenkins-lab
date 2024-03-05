@@ -16,19 +16,12 @@ pipeline {
                     bat 'mvn test'
                 }
             }
-            post {
-                always {
-                    junit '**/TEST*.xml'
-                }
-            }
         }
 
         stage('Post Test') {
             steps {
-                dir('trailrunner') {
-                    always {
-                        junit '**/TEST*.xml'
-                    }
+                always {
+                    junit '**/TEST*.xml'
                 }
             }
         }
