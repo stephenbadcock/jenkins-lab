@@ -17,5 +17,11 @@ pipeline {
                 }
             }
         }
+
+        stage('Post Test') {
+            steps {
+                junit '**/TEST*.xml'
+            }
+        }
     }
 }
