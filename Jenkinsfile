@@ -16,6 +16,11 @@ pipeline {
                     bat 'mvn test'
                 }
             }
+            post {
+                always {
+                    junit '**/TEST*.xml'
+                }
+            }
         }
 
         stage('Post Test') {
