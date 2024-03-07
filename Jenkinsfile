@@ -30,6 +30,22 @@ pipeline {
                     bat script: 'robot --nostatusrc carRental.robot', returnStatus: true
                 }
             }
+
+            post {
+                always {
+                    step([
+                        $class              : 'RobotPublisher',
+                        outputPath          : 'results',
+                        outputFileName      : "output.xml",
+                        reportFileName      : 'report.html',
+                        logFileName         : 'log.html',
+                        disableArchiveOutput: false,
+                        passThreshold       : 100.0,
+                        unstableThreshold   : 95.0,
+                        otherFiles          : "**/*.png",                       
+                    ])
+                }
+            }
         }
     }
 }

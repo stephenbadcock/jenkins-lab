@@ -3,6 +3,7 @@ Documentation    Tests for Infotiv's car rental site: https://rental4.infotiv.ne
 Resource    ../resources/carRentalResources.robot
 Suite Setup    Setup test environment
 Test Setup    Initialize Test
+Test Teardown    Cancel all bookings
 Suite Teardown    Close test environment
 
 *** Test Cases ***

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.1 on win32)" generated="2024-03-04T09:45:27.619023" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.12.1 on win32)" generated="2024-03-07T14:20:24.302696" rpa="false" schemaversion="5">
 <suite id="s1" name="Jenkins-Lab" source="C:\Java\jenkins-lab">
 <suite id="s1-s1" name="Selenium" source="C:\Java\jenkins-lab\Selenium">
 <suite id="s1-s1-s1" name="infotivCarRental" source="C:\Java\jenkins-lab\Selenium\infotivCarRental">
@@ -9,485 +9,337 @@
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
 <arg>${selenium_speed}</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-03-04T09:45:27.907814" elapsed="0.000997"/>
+<status status="PASS" start="2024-03-07T14:20:24.572542" elapsed="0.000000"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-03-04T09:45:27.908811" level="INFO">Opening browser 'Chrome' to base url 'None'.</msg>
+<msg time="2024-03-07T14:20:24.572542" level="INFO">Opening browser 'Chrome' to base url 'None'.</msg>
 <arg>browser=${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-03-04T09:45:27.908811" elapsed="1.554633"/>
+<status status="PASS" start="2024-03-07T14:20:24.572542" elapsed="1.506824"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-03-04T09:45:29.464443" elapsed="0.124885"/>
+<status status="PASS" start="2024-03-07T14:20:26.079366" elapsed="0.145976"/>
 </kw>
 <doc>Sets Selenium speed, opens Chrome and maximizes browser window</doc>
-<status status="PASS" start="2024-03-04T09:45:27.906814" elapsed="1.682514"/>
+<status status="PASS" start="2024-03-07T14:20:24.572542" elapsed="1.653800"/>
 </kw>
-<test id="s1-s1-s1-s1-s1-t1" name="Scenario: User tries to log in with invalid credentials" line="17">
+<test id="s1-s1-s1-s1-s1-t1" name="Scenario: User tries to log in with invalid credentials" line="18">
 <kw name="Initialize Test" owner="carRentalResources" type="SETUP">
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-03-04T09:45:29.592335" level="INFO">Opening url 'https://rental4.infotiv.net/'</msg>
+<msg time="2024-03-07T14:20:26.228345" level="INFO">Opening url 'https://rental4.infotiv.net/'</msg>
 <arg>${homepage_url}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-03-04T09:45:29.592335" elapsed="0.699687"/>
+<status status="PASS" start="2024-03-07T14:20:26.228345" elapsed="0.924677"/>
 </kw>
+<doc>Start all test cases from https://rental4.infotiv.net/</doc>
+<status status="PASS" start="2024-03-07T14:20:26.227340" elapsed="0.925682"/>
+</kw>
+<kw name="Given User is on date selection page" owner="carRentalResources">
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>//h1[@id='questionText']</arg>
+<arg>When do you want to make your trip?</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2024-03-07T14:20:27.157907" elapsed="0.030709"/>
+</kw>
+<tag>date-selection</tag>
+<tag>VG_test</tag>
+<doc>Date selection - Checks if user is on date selection page</doc>
+<status status="PASS" start="2024-03-07T14:20:27.154026" elapsed="0.035386"/>
+</kw>
+<kw name="When User tries to log in with invalid credentials" owner="carRentalResources">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>//input[@id='email']</arg>
 <arg>timeout=15s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-04T09:45:30.293022" elapsed="0.031452"/>
+<status status="PASS" start="2024-03-07T14:20:27.194403" elapsed="0.031068"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>//input[@id='password']</arg>
 <arg>timeout=15s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-04T09:45:30.325595" elapsed="0.031329"/>
+<status status="PASS" start="2024-03-07T14:20:27.225471" elapsed="0.017509"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>//button[@id='login']</arg>
 <arg>timeout=15s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-04T09:45:30.356924" elapsed="0.026536"/>
+<status status="PASS" start="2024-03-07T14:20:27.242980" elapsed="0.031552"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-04T09:45:30.384457" level="INFO">Typing text 'kungen@slottet.se' into text field '//input[@id='email']'.</msg>
+<msg time="2024-03-07T14:20:27.274532" level="INFO">Typing text 'drottningen@slottet.se' into text field '//input[@id='email']'.</msg>
+<arg>//input[@id='email']</arg>
+<arg>${user_email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-07T14:20:27.274532" elapsed="0.119303"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-03-07T14:20:27.393835" level="INFO">Typing password into text field '//input[@id='password']'.</msg>
+<msg time="2024-03-07T14:20:27.425340" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>//input[@id='password']</arg>
+<arg>${user_password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-07T14:20:27.393835" elapsed="0.083668"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-07T14:20:27.477503" level="INFO">Clicking button '//button[@id='login']'.</msg>
+<arg>//button[@id='login']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-07T14:20:27.477503" elapsed="0.238233"/>
+</kw>
+<arg>${invalid_user_email}</arg>
+<arg>${invalid_user_password}</arg>
+<tag>header</tag>
+<tag>login</tag>
+<doc>Header - User tries to log in in with invalid credentials</doc>
+<status status="PASS" start="2024-03-07T14:20:27.193344" elapsed="0.522392"/>
+</kw>
+<kw name="Then An error message appears to the left of the buttons" owner="carRentalResources">
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>//label[@id='signInError']</arg>
+<arg>Wrong e-mail or password</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2024-03-07T14:20:27.725999" elapsed="0.024536"/>
+</kw>
+<tag>header</tag>
+<tag>login</tag>
+<doc>Header - Checks for error message to the left of the buttons</doc>
+<status status="PASS" start="2024-03-07T14:20:27.715736" elapsed="0.035813"/>
+</kw>
+<kw name="Cancel all bookings" owner="carRentalResources" type="TEARDOWN">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//input[@id='email']</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-07T14:20:27.753541" elapsed="0.021029"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//input[@id='password']</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-07T14:20:27.775671" elapsed="0.018393"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//button[@id='login']</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-07T14:20:27.795062" elapsed="0.014578"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-07T14:20:27.809640" level="INFO">Typing text 'kungen@slottet.se' into text field '//input[@id='email']'.</msg>
 <arg>//input[@id='email']</arg>
 <arg>${valid_user_email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-04T09:45:30.383460" elapsed="0.118824"/>
+<status status="PASS" start="2024-03-07T14:20:27.809640" elapsed="0.080954"/>
 </kw>
 <kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2024-03-04T09:45:30.503285" level="INFO">Typing password into text field '//input[@id='password']'.</msg>
-<msg time="2024-03-04T09:45:30.539483" level="INFO">Temporally setting log level to: NONE</msg>
+<msg time="2024-03-07T14:20:27.890594" level="INFO">Typing password into text field '//input[@id='password']'.</msg>
+<msg time="2024-03-07T14:20:27.942533" level="INFO">Temporally setting log level to: NONE</msg>
 <arg>//input[@id='password']</arg>
 <arg>${valid_user_password}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-04T09:45:30.502284" elapsed="0.085330"/>
+<status status="PASS" start="2024-03-07T14:20:27.890594" elapsed="0.089996"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-04T09:45:30.588629" level="INFO">Clicking button '//button[@id='login']'.</msg>
+<msg time="2024-03-07T14:20:27.980590" level="INFO">Clicking button '//button[@id='login']'.</msg>
 <arg>//button[@id='login']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-04T09:45:30.587614" elapsed="0.326388"/>
+<status status="PASS" start="2024-03-07T14:20:27.980590" elapsed="0.312972"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>//button[@id='mypage']</arg>
 <arg>timeout=15s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-04T09:45:30.914002" elapsed="0.026094"/>
+<status status="PASS" start="2024-03-07T14:20:28.293562" elapsed="0.014098"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-04T09:45:30.941098" level="INFO">Clicking button '//button[@id='mypage']'.</msg>
+<msg time="2024-03-07T14:20:28.307660" level="INFO">Clicking button '//button[@id='mypage']'.</msg>
 <arg>//button[@id='mypage']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-04T09:45:30.941098" elapsed="0.131182"/>
+<status status="PASS" start="2024-03-07T14:20:28.307660" elapsed="0.135633"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>//button[@id='show']</arg>
 <arg>timeout=15s</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-03-04T09:45:31.073279" elapsed="0.014993"/>
+<status status="PASS" start="2024-03-07T14:20:28.443293" elapsed="0.017155"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-03-04T09:45:31.117290" level="INFO">Element 'xpath=//button[text()='Cancel booking']' is displayed.</msg>
+<msg time="2024-03-07T14:20:28.492055" level="INFO">Element 'xpath=//button[text()='Cancel booking']' is displayed.</msg>
 <arg>xpath=//button[text()='Cancel booking']</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-04T09:45:31.089269" elapsed="0.029019"/>
+<status status="PASS" start="2024-03-07T14:20:28.460448" elapsed="0.031607"/>
 </kw>
-<msg time="2024-03-04T09:45:31.118288" level="INFO">${element_is_visible} = True</msg>
+<msg time="2024-03-07T14:20:28.492055" level="INFO">${element_is_visible} = True</msg>
 <var>${element_is_visible}</var>
 <arg>Element Should Be Visible</arg>
 <arg>xpath=//button[text()='Cancel booking']</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-04T09:45:31.089269" elapsed="0.029019"/>
+<status status="PASS" start="2024-03-07T14:20:28.460448" elapsed="0.031607"/>
 </kw>
 <if>
 <branch type="IF" condition="${element_is_visible}">
 <kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2024-03-04T09:45:31.129159" level="INFO">@{cancel_buttons} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="2c13c9b9f2b3b1b2b57b4f523f3871fc", element="f.4BC99FD9C9337F5B0F6B7F8361143E88.d.155A6A5F9EADF9D569F80230D3F7C460.e.35")&gt; | &lt;selenium.webdr...</msg>
-<var>@{cancel_buttons}</var>
+<msg time="2024-03-07T14:20:28.492055" level="INFO">${cancel_buttons} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="928e6b723511dbc6487b472f01fe8e34", element="f.F4952D936F0AE6827751EB866F7A5FD7.d.06B9B7A1C7F57D3E4D69454249860549.e.53")&gt;, &lt;selenium.webdriv...</msg>
+<var>${cancel_buttons}</var>
 <arg>xpath=//button[text()='Cancel booking']</arg>
 <doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2024-03-04T09:45:31.119302" elapsed="0.009857"/>
+<status status="PASS" start="2024-03-07T14:20:28.492055" elapsed="0.000000"/>
 </kw>
-<for flavor="IN">
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-03-07T14:20:28.506576" level="INFO">Length is 2.</msg>
+<msg time="2024-03-07T14:20:28.507771" level="INFO">${bookings_count} = 2</msg>
+<var>${bookings_count}</var>
+<arg>${cancel_buttons}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-03-07T14:20:28.506576" elapsed="0.001195"/>
+</kw>
+<for flavor="IN RANGE">
 <iter>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${cancel_button}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-04T09:45:31.130157" elapsed="0.012361"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-04T09:45:31.143516" level="INFO">Clicking button '&lt;selenium.webdriver.remote.webelement.WebElement (session="2c13c9b9f2b3b1b2b57b4f523f3871fc", element="f.4BC99FD9C9337F5B0F6B7F8361143E88.d.155A6A5F9EADF9D569F80230D3F7C460.e.35")&gt;'.</msg>
-<arg>${cancel_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-04T09:45:31.142518" elapsed="0.037928"/>
-</kw>
-<kw name="Handle Alert" owner="SeleniumLibrary">
-<msg time="2024-03-04T09:45:31.181466" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<doc>Handles the current alert and returns its message.</doc>
-<status status="PASS" start="2024-03-04T09:45:31.181466" elapsed="0.004980"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>has been Returned</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-03-04T09:45:31.187446" elapsed="0.126125"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>//button[@id='mypage']</arg>
-<arg>timeout=15s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-04T09:45:31.313571" elapsed="0.021764"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-04T09:45:31.335896" level="INFO">Clicking button '//button[@id='mypage']'.</msg>
-<arg>//button[@id='mypage']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-04T09:45:31.335896" elapsed="0.140758"/>
-</kw>
-<var name="${cancel_button}">&lt;selenium.webdriver.remote.webelement.WebElement (session="2c13c9b9f2b3b1b2b57b4f523f3871fc", element="f.4BC99FD9C9337F5B0F6B7F8361143E88.d.155A6A5F9EADF9D569F80230D3F7C460.e.35")&gt;</var>
-<status status="PASS" start="2024-03-04T09:45:31.130157" elapsed="0.346497"/>
-</iter>
-<iter>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2024-03-04T09:45:31.485639" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:31.691140" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:31.896537" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:32.101792" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:32.307697" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:32.513010" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:32.719160" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:32.924149" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:33.128761" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:33.334113" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:33.539449" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:33.744317" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:33.950308" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:34.156320" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:34.361981" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:34.567054" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:34.772627" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:34.978413" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:35.184277" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:35.389444" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:35.595539" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:35.801187" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:36.006747" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:36.211918" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:36.417552" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<msg time="2024-03-04T09:45:36.719013" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2024-03-04T09:45:36.720010" level="FAIL">Message: stale element reference: stale element not found
-  (Session info: chrome=122.0.6261.95); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Stacktrace:
-	GetHandleVerifier [0x00007FF72D0DAD22+56930]
-	(No symbol) [0x00007FF72D04F622]
-	(No symbol) [0x00007FF72CF042E5]
-	(No symbol) [0x00007FF72CF13EB1]
-	(No symbol) [0x00007FF72CF09FB4]
-	(No symbol) [0x00007FF72CF0A139]
-	(No symbol) [0x00007FF72CF0827A]
-	(No symbol) [0x00007FF72CF0B9FD]
-	(No symbol) [0x00007FF72CF88E57]
-	(No symbol) [0x00007FF72CF6BC9A]
-	(No symbol) [0x00007FF72CF881E2]
-	(No symbol) [0x00007FF72CF6BA43]
-	(No symbol) [0x00007FF72CF3D438]
-	(No symbol) [0x00007FF72CF3E4D1]
-	GetHandleVerifier [0x00007FF72D456AAD+3709933]
-	GetHandleVerifier [0x00007FF72D4AFFED+4075821]
-	GetHandleVerifier [0x00007FF72D4A817F+4043455]
-	GetHandleVerifier [0x00007FF72D179756+706710]
-	(No symbol) [0x00007FF72D05B8FF]
-	(No symbol) [0x00007FF72D056AE4]
-	(No symbol) [0x00007FF72D056C3C]
-	(No symbol) [0x00007FF72D0468F4]
-	BaseThreadInitThunk [0x00007FFD89887344+20]
-	RtlUserThreadStart [0x00007FFD8B8826B1+33]
-</msg>
-<arg>${cancel_button}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2024-03-04T09:45:31.477659" elapsed="5.245366">Message: stale element reference: stale element not found
-  (Session info: chrome=122.0.6261.95); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Stacktrace:
-	GetHandleVerifier [0x00007FF72D0DAD22+56930]
-	(No symbol) [0x00007FF72D04F622]
-	(No symbol) [0x00007FF72CF042E5]
-	(No symbol) [0x00007FF72CF13EB1]
-	(No symbol) [0x00007FF72CF09FB4]
-	(No symbol) [0x00007FF72CF0A139]
-	(No symbol) [0x00007FF72CF0827A]
-	(No symbol) [0x00007FF72CF0B9FD]
-	(No symbol) [0x00007FF72CF88E57]
-	(No symbol) [0x00007FF72CF6BC9A]
-	(No symbol) [0x00007FF72CF881E2]
-	(No symbol) [0x00007FF72CF6BA43]
-	(No symbol) [0x00007FF72CF3D438]
-	(No symbol) [0x00007FF72CF3E4D1]
-	GetHandleVerifier [0x00007FF72D456AAD+3709933]
-	GetHandleVerifier [0x00007FF72D4AFFED+4075821]
-	GetHandleVerifier [0x00007FF72D4A817F+4043455]
-	GetHandleVerifier [0x00007FF72D179756+706710]
-	(No symbol) [0x00007FF72D05B8FF]
-	(No symbol) [0x00007FF72D056AE4]
-	(No symbol) [0x00007FF72D056C3C]
-	(No symbol) [0x00007FF72D0468F4]
-	BaseThreadInitThunk [0x00007FFD89887344+20]
-	RtlUserThreadStart [0x00007FFD8B8826B1+33]
-</status>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>${cancel_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-03-04T09:45:36.723025" elapsed="0.000000"/>
-</kw>
-<kw name="Handle Alert" owner="SeleniumLibrary">
-<doc>Handles the current alert and returns its message.</doc>
-<status status="NOT RUN" start="2024-03-04T09:45:36.723025" elapsed="0.000000"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>has been Returned</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2024-03-04T09:45:36.724023" elapsed="0.000000"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>//button[@id='mypage']</arg>
-<arg>timeout=15s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2024-03-04T09:45:36.724023" elapsed="0.000000"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>//button[@id='mypage']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-03-04T09:45:36.724023" elapsed="0.000000"/>
-</kw>
-<var name="${cancel_button}">&lt;selenium.webdriver.remote.webelement.WebElement (session="2c13c9b9f2b3b1b2b57b4f523f3871fc", element="f.4BC99FD9C9337F5B0F6B7F8361143E88.d.155A6A5F9EADF9D569F80230D3F7C460.e.36")&gt;</var>
-<status status="FAIL" start="2024-03-04T09:45:31.477659" elapsed="5.247363">Message: stale element reference: stale element not found
-  (Session info: chrome=122.0.6261.95); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Stacktrace:
-	GetHandleVerifier [0x00007FF72D0DAD22+56930]
-	(No symbol) [0x00007FF72D04F622]
-	(No symbol) [0x00007FF72CF042E5]
-	(No symbol) [0x00007FF72CF13EB1]
-	(No symbol) [0x00007FF72CF09FB4]
-	(No symbol) [0x00007FF72CF0A139]
-	(No symbol) [0x00007FF72CF0827A]
-	(No symbol) [0x00007FF72CF0B9FD]
-	(No symbol) [0x00007FF72CF88E57]
-	(No symbol) [0x00007FF72CF6BC9A]
-	(No symbol) [0x00007FF72CF881E2]
-	(No symbol) [0x00007FF72CF6BA43]
-	(No symbol) [0x00007FF72CF3D438]
-	(No symbol) [0x00007FF72CF3E4D1]
-	GetHandleVerifier [0x00007FF72D456AAD+3709933]
-	GetHandleVerifier [0x00007FF72D4AFFED+4075821]
-	GetHandleVerifier [0x00007FF72D4A817F+4043455]
-	GetHandleVerifier [0x00007FF72D179756+706710]
-	(No symbol) [0x00007FF72D05B8FF]
-	(No symbol) [0x00007FF72D056AE4]
-	(No symbol) [0x00007FF72D056C3C]
-	(No symbol) [0x00007FF72D0468F4]
-	BaseThreadInitThunk [0x00007FFD89887344+20]
-	RtlUserThreadStart [0x00007FFD8B8826B1+33]
-</status>
-</iter>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2024-03-07T14:20:28.507771" level="INFO">${cancel_button} = &lt;selenium.webdriver.remote.webelement.WebElement (session="928e6b723511dbc6487b472f01fe8e34", element="f.F4952D936F0AE6827751EB866F7A5FD7.d.06B9B7A1C7F57D3E4D69454249860549.e.53")&gt;</msg>
 <var>${cancel_button}</var>
-<value>@{cancel_buttons}</value>
-<status status="FAIL" start="2024-03-04T09:45:31.129159" elapsed="5.595863">Message: stale element reference: stale element not found
-  (Session info: chrome=122.0.6261.95); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Stacktrace:
-	GetHandleVerifier [0x00007FF72D0DAD22+56930]
-	(No symbol) [0x00007FF72D04F622]
-	(No symbol) [0x00007FF72CF042E5]
-	(No symbol) [0x00007FF72CF13EB1]
-	(No symbol) [0x00007FF72CF09FB4]
-	(No symbol) [0x00007FF72CF0A139]
-	(No symbol) [0x00007FF72CF0827A]
-	(No symbol) [0x00007FF72CF0B9FD]
-	(No symbol) [0x00007FF72CF88E57]
-	(No symbol) [0x00007FF72CF6BC9A]
-	(No symbol) [0x00007FF72CF881E2]
-	(No symbol) [0x00007FF72CF6BA43]
-	(No symbol) [0x00007FF72CF3D438]
-	(No symbol) [0x00007FF72CF3E4D1]
-	GetHandleVerifier [0x00007FF72D456AAD+3709933]
-	GetHandleVerifier [0x00007FF72D4AFFED+4075821]
-	GetHandleVerifier [0x00007FF72D4A817F+4043455]
-	GetHandleVerifier [0x00007FF72D179756+706710]
-	(No symbol) [0x00007FF72D05B8FF]
-	(No symbol) [0x00007FF72D056AE4]
-	(No symbol) [0x00007FF72D056C3C]
-	(No symbol) [0x00007FF72D0468F4]
-	BaseThreadInitThunk [0x00007FFD89887344+20]
-	RtlUserThreadStart [0x00007FFD8B8826B1+33]
-</status>
+<arg>xpath=//button[text()='Cancel booking']</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2024-03-07T14:20:28.507771" elapsed="0.000000"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-07T14:20:28.507771" level="INFO">Clicking button '&lt;selenium.webdriver.remote.webelement.WebElement (session="928e6b723511dbc6487b472f01fe8e34", element="f.F4952D936F0AE6827751EB866F7A5FD7.d.06B9B7A1C7F57D3E4D69454249860549.e.53")&gt;'.</msg>
+<arg>${cancel_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-07T14:20:28.507771" elapsed="0.049920"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2024-03-07T14:20:28.558693" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2024-03-07T14:20:28.558693" elapsed="0.004816"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-07T14:20:28.677212" level="INFO">Current page contains text 'has been Returned'.</msg>
+<arg>has been Returned</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-07T14:20:28.563509" elapsed="0.113703"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//button[@id='mypage']</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-07T14:20:28.677212" elapsed="0.029561"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-07T14:20:28.708079" level="INFO">Clicking button '//button[@id='mypage']'.</msg>
+<arg>//button[@id='mypage']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-07T14:20:28.706773" elapsed="0.126238"/>
+</kw>
+<var name="${i}">0</var>
+<status status="PASS" start="2024-03-07T14:20:28.507771" elapsed="0.325240"/>
+</iter>
+<iter>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2024-03-07T14:20:28.846371" level="INFO">${cancel_button} = &lt;selenium.webdriver.remote.webelement.WebElement (session="928e6b723511dbc6487b472f01fe8e34", element="f.F4952D936F0AE6827751EB866F7A5FD7.d.22DB546147707618813DE41F937BF9E0.e.71")&gt;</msg>
+<var>${cancel_button}</var>
+<arg>xpath=//button[text()='Cancel booking']</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2024-03-07T14:20:28.833011" elapsed="0.013360"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-07T14:20:28.846371" level="INFO">Clicking button '&lt;selenium.webdriver.remote.webelement.WebElement (session="928e6b723511dbc6487b472f01fe8e34", element="f.F4952D936F0AE6827751EB866F7A5FD7.d.22DB546147707618813DE41F937BF9E0.e.71")&gt;'.</msg>
+<arg>${cancel_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-07T14:20:28.846371" elapsed="0.028300"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2024-03-07T14:20:28.874671" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2024-03-07T14:20:28.874671" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-07T14:20:29.007915" level="INFO">Current page contains text 'has been Returned'.</msg>
+<arg>has been Returned</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-07T14:20:28.874671" elapsed="0.133244"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//button[@id='mypage']</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-07T14:20:29.007915" elapsed="0.016911"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-07T14:20:29.024826" level="INFO">Clicking button '//button[@id='mypage']'.</msg>
+<arg>//button[@id='mypage']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-07T14:20:29.024826" elapsed="0.151898"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2024-03-07T14:20:28.833011" elapsed="0.343713"/>
+</iter>
+<var>${i}</var>
+<value>${bookings_count}</value>
+<status status="PASS" start="2024-03-07T14:20:28.507771" elapsed="0.668953"/>
 </for>
-<status status="FAIL" start="2024-03-04T09:45:31.119302" elapsed="5.605720">Message: stale element reference: stale element not found
-  (Session info: chrome=122.0.6261.95); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Stacktrace:
-	GetHandleVerifier [0x00007FF72D0DAD22+56930]
-	(No symbol) [0x00007FF72D04F622]
-	(No symbol) [0x00007FF72CF042E5]
-	(No symbol) [0x00007FF72CF13EB1]
-	(No symbol) [0x00007FF72CF09FB4]
-	(No symbol) [0x00007FF72CF0A139]
-	(No symbol) [0x00007FF72CF0827A]
-	(No symbol) [0x00007FF72CF0B9FD]
-	(No symbol) [0x00007FF72CF88E57]
-	(No symbol) [0x00007FF72CF6BC9A]
-	(No symbol) [0x00007FF72CF881E2]
-	(No symbol) [0x00007FF72CF6BA43]
-	(No symbol) [0x00007FF72CF3D438]
-	(No symbol) [0x00007FF72CF3E4D1]
-	GetHandleVerifier [0x00007FF72D456AAD+3709933]
-	GetHandleVerifier [0x00007FF72D4AFFED+4075821]
-	GetHandleVerifier [0x00007FF72D4A817F+4043455]
-	GetHandleVerifier [0x00007FF72D179756+706710]
-	(No symbol) [0x00007FF72D05B8FF]
-	(No symbol) [0x00007FF72D056AE4]
-	(No symbol) [0x00007FF72D056C3C]
-	(No symbol) [0x00007FF72D0468F4]
-	BaseThreadInitThunk [0x00007FFD89887344+20]
-	RtlUserThreadStart [0x00007FFD8B8826B1+33]
-</status>
+<status status="PASS" start="2024-03-07T14:20:28.492055" elapsed="0.684669"/>
 </branch>
-<status status="FAIL" start="2024-03-04T09:45:31.119302" elapsed="5.605720">Message: stale element reference: stale element not found
-  (Session info: chrome=122.0.6261.95); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Stacktrace:
-	GetHandleVerifier [0x00007FF72D0DAD22+56930]
-	(No symbol) [0x00007FF72D04F622]
-	(No symbol) [0x00007FF72CF042E5]
-	(No symbol) [0x00007FF72CF13EB1]
-	(No symbol) [0x00007FF72CF09FB4]
-	(No symbol) [0x00007FF72CF0A139]
-	(No symbol) [0x00007FF72CF0827A]
-	(No symbol) [0x00007FF72CF0B9FD]
-	(No symbol) [0x00007FF72CF88E57]
-	(No symbol) [0x00007FF72CF6BC9A]
-	(No symbol) [0x00007FF72CF881E2]
-	(No symbol) [0x00007FF72CF6BA43]
-	(No symbol) [0x00007FF72CF3D438]
-	(No symbol) [0x00007FF72CF3E4D1]
-	GetHandleVerifier [0x00007FF72D456AAD+3709933]
-	GetHandleVerifier [0x00007FF72D4AFFED+4075821]
-	GetHandleVerifier [0x00007FF72D4A817F+4043455]
-	GetHandleVerifier [0x00007FF72D179756+706710]
-	(No symbol) [0x00007FF72D05B8FF]
-	(No symbol) [0x00007FF72D056AE4]
-	(No symbol) [0x00007FF72D056C3C]
-	(No symbol) [0x00007FF72D0468F4]
-	BaseThreadInitThunk [0x00007FFD89887344+20]
-	RtlUserThreadStart [0x00007FFD8B8826B1+33]
-</status>
+<status status="PASS" start="2024-03-07T14:20:28.492055" elapsed="0.684669"/>
 </if>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>//button[@id='logout']</arg>
 <arg>timeout=15s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2024-03-04T09:45:36.725022" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-07T14:20:29.176724" elapsed="0.030243"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-07T14:20:29.207968" level="INFO">Clicking button '//button[@id='logout']'.</msg>
 <arg>//button[@id='logout']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-03-04T09:45:36.726022" elapsed="0.000059"/>
+<status status="PASS" start="2024-03-07T14:20:29.207968" elapsed="0.197206"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-03-07T14:20:29.406866" level="INFO">Opening url 'https://rental4.infotiv.net/'</msg>
 <arg>${homepage_url}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="NOT RUN" start="2024-03-04T09:45:36.726081" elapsed="0.000335"/>
+<status status="PASS" start="2024-03-07T14:20:29.406194" elapsed="0.088386"/>
 </kw>
-<doc>Cancel booking and start all test cases from https://rental4.infotiv.net/</doc>
-<status status="FAIL" start="2024-03-04T09:45:29.591326" elapsed="7.135090">Message: stale element reference: stale element not found
-  (Session info: chrome=122.0.6261.95); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Stacktrace:
-	GetHandleVerifier [0x00007FF72D0DAD22+56930]
-	(No symbol) [0x00007FF72D04F622]
-	(No symbol) [0x00007FF72CF042E5]
-	(No symbol) [0x00007FF72CF13EB1]
-	(No symbol) [0x00007FF72CF09FB4]
-	(No symbol) [0x00007FF72CF0A139]
-	(No symbol) [0x00007FF72CF0827A]
-	(No symbol) [0x00007FF72CF0B9FD]
-	(No symbol) [0x00007FF72CF88E57]
-	(No symbol) [0x00007FF72CF6BC9A]
-	(No symbol) [0x00007FF72CF881E2]
-	(No symbol) [0x00007FF72CF6BA43]
-	(No symbol) [0x00007FF72CF3D438]
-	(No symbol) [0x00007FF72CF3E4D1]
-	GetHandleVerifier [0x00007FF72D456AAD+3709933]
-	GetHandleVerifier [0x00007FF72D4AFFED+4075821]
-	GetHandleVerifier [0x00007FF72D4A817F+4043455]
-	GetHandleVerifier [0x00007FF72D179756+706710]
-	(No symbol) [0x00007FF72D05B8FF]
-	(No symbol) [0x00007FF72D056AE4]
-	(No symbol) [0x00007FF72D056C3C]
-	(No symbol) [0x00007FF72D0468F4]
-	BaseThreadInitThunk [0x00007FFD89887344+20]
-	RtlUserThreadStart [0x00007FFD8B8826B1+33]
-</status>
+<doc>Loops through all bookings and cancels them</doc>
+<status status="PASS" start="2024-03-07T14:20:27.753541" elapsed="1.741039"/>
 </kw>
-<status status="FAIL" start="2024-03-04T09:45:29.589328" elapsed="7.137088">Setup failed:
-Message: stale element reference: stale element not found
-  (Session info: chrome=122.0.6261.95); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Stacktrace:
-	GetHandleVerifier [0x00007FF72D0DAD22+56930]
-	(No symbol) [0x00007FF72D04F622]
-	(No symbol) [0x00007FF72CF042E5]
-	(No symbol) [0x00007FF72CF13EB1]
-	(No symbol) [0x00007FF72CF09FB4]
-	(No symbol) [0x00007FF72CF0A139]
-	(No symbol) [0x00007FF72CF0827A]
-	(No symbol) [0x00007FF72CF0B9FD]
-	(No symbol) [0x00007FF72CF88E57]
-	(No symbol) [0x00007FF72CF6BC9A]
-	(No symbol) [0x00007FF72CF881E2]
-	(No symbol) [0x00007FF72CF6BA43]
-	(No symbol) [0x00007FF72CF3D438]
-	(No symbol) [0x00007FF72CF3E4D1]
-	GetHandleVerifier [0x00007FF72D456AAD+3709933]
-	GetHandleVerifier [0x00007FF72D4AFFED+4075821]
-	GetHandleVerifier [0x00007FF72D4A817F+4043455]
-	GetHandleVerifier [0x00007FF72D179756+706710]
-	(No symbol) [0x00007FF72D05B8FF]
-	(No symbol) [0x00007FF72D056AE4]
-	(No symbol) [0x00007FF72D056C3C]
-	(No symbol) [0x00007FF72D0468F4]
-	BaseThreadInitThunk [0x00007FFD89887344+20]
-	RtlUserThreadStart [0x00007FFD8B8826B1+33]
-</status>
+<status status="PASS" start="2024-03-07T14:20:26.226342" elapsed="3.269258"/>
 </test>
 <kw name="Close test environment" owner="carRentalResources" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-03-04T09:45:36.732424" elapsed="2.460587"/>
+<status status="PASS" start="2024-03-07T14:20:29.495600" elapsed="2.127216"/>
 </kw>
 <doc>Closes Browser</doc>
-<status status="PASS" start="2024-03-04T09:45:36.732424" elapsed="2.460587"/>
+<status status="PASS" start="2024-03-07T14:20:29.495600" elapsed="2.127216"/>
 </kw>
 <doc>Tests for Infotiv's car rental site: https://rental4.infotiv.net/</doc>
-<status status="FAIL" start="2024-03-04T09:45:27.660983" elapsed="11.532028"/>
+<status status="PASS" start="2024-03-07T14:20:24.349630" elapsed="7.273186"/>
 </suite>
-<status status="FAIL" start="2024-03-04T09:45:27.656985" elapsed="11.539661"/>
+<status status="PASS" start="2024-03-07T14:20:24.347519" elapsed="7.276557"/>
 </suite>
-<status status="FAIL" start="2024-03-04T09:45:27.653988" elapsed="11.544657"/>
+<status status="PASS" start="2024-03-07T14:20:24.333944" elapsed="7.290132"/>
 </suite>
-<status status="FAIL" start="2024-03-04T09:45:27.650991" elapsed="11.549656"/>
+<status status="PASS" start="2024-03-07T14:20:24.333944" elapsed="7.290132"/>
 </suite>
-<status status="FAIL" start="2024-03-04T09:45:27.625004" elapsed="11.577641"/>
+<status status="PASS" start="2024-03-07T14:20:24.302696" elapsed="7.330795"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Jenkins-Lab">Jenkins-Lab</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1" name="Selenium">Jenkins-Lab.Selenium</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="infotivCarRental">Jenkins-Lab.Selenium.infotivCarRental</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1-s1-s1" name="Tests">Jenkins-Lab.Selenium.infotivCarRental.Tests</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1-s1-s1-s1" name="carRental">Jenkins-Lab.Selenium.infotivCarRental.Tests.carRental</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Jenkins-Lab">Jenkins-Lab</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Selenium">Jenkins-Lab.Selenium</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="infotivCarRental">Jenkins-Lab.Selenium.infotivCarRental</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="Tests">Jenkins-Lab.Selenium.infotivCarRental.Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1-s1" name="carRental">Jenkins-Lab.Selenium.infotivCarRental.Tests.carRental</stat>
 </suite>
 </statistics>
 <errors>
