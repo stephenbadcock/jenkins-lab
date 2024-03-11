@@ -35,7 +35,7 @@ pipeline {
                 always {
                     step([
                         $class              : 'RobotPublisher',
-                        outputPath          : '.',
+                        outputPath          : 'Selenium/infotivCarRental',
                         outputFileName      : "output.xml",
                         reportFileName      : 'report.html',
                         logFileName         : 'log.html',
