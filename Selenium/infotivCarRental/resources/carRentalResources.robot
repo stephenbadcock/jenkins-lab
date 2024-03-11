@@ -49,34 +49,7 @@ Setup test environment
     Maximize Browser Window
 
 Initialize Test
-    [Documentation]    Cancel booking and start all test cases from ${homepage_url}
-
-    Go To    ${homepage_url}
-
-    Wait Until Element Is Visible    //input[@id='email']    timeout=15s
-    Wait Until Element Is Visible    //input[@id='password']    timeout=15s
-    Wait Until Element Is Visible    //button[@id='login']    timeout=15s
-
-    Input Text    //input[@id='email']    ${valid_user_email}
-    Input Password    //input[@id='password']    ${valid_user_password}
-    Click Button    //button[@id='login']
-
-    Wait Until Element Is Visible    //button[@id='mypage']    timeout=15s
-    Click Button    //button[@id='mypage']
-
-    Wait Until Page Contains Element    //button[@id='show']    timeout=15s
-    ${element_is_visible}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//button[text()='Cancel booking']
-
-    IF    ${element_is_visible}
-        ${cancel_button}=    Get WebElement    xpath=//button[text()='Cancel booking']
-
-        Click Button    ${cancel_button}
-        Handle Alert
-        Page Should Contain    has been Returned
-    END
-
-    Wait Until Element Is Visible    //button[@id='logout']    timeout=15s
-    Click Button    //button[@id='logout']
+    [Documentation]    Start all test cases from ${homepage_url}
 
     Go To    ${homepage_url}    
 
@@ -321,6 +294,43 @@ There should be a book button next to all available cars
         Fail    Found ${actual_book_elements} elements with xpath=//input[@value='book'] instead of ${expected_book_elements}
     END
 
+Cancel all bookings
+    [Documentation]    Loops through all bookings and cancels them
+
+    Wait Until Element Is Visible    //input[@id='email']    timeout=15s
+    Wait Until Element Is Visible    //input[@id='password']    timeout=15s
+    Wait Until Element Is Visible    //button[@id='login']    timeout=15s
+
+    Input Text    //input[@id='email']    ${valid_user_email}
+    Input Password    //input[@id='password']    ${valid_user_password}
+    Click Button    //button[@id='login']
+
+    Wait Until Element Is Visible    //button[@id='mypage']    timeout=15s
+    Click Button    //button[@id='mypage']
+
+    Wait Until Page Contains Element    //button[@id='show']    timeout=15s
+    ${element_is_visible}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//button[text()='Cancel booking']
+
+    IF    ${element_is_visible}
+        ${cancel_buttons}=    Get WebElements    xpath=//button[text()='Cancel booking']
+        ${bookings_count}=    Get Length    ${cancel_buttons}
+
+        FOR  ${i}  IN RANGE    ${bookings_count}
+            ${cancel_button}=    Get WebElement    xpath=//button[text()='Cancel booking']
+            Click Button    ${cancel_button}
+            Handle Alert
+            Page Should Contain    has been Returned
+
+            Wait Until Element Is Visible    //button[@id='mypage']    timeout=15s
+            Click Button    //button[@id='mypage']                        
+        END
+    END
+
+    Wait Until Element Is Visible    //button[@id='logout']    timeout=15s
+    Click Button    //button[@id='logout']
+
+    Go To    ${homepage_url}
+    
 Close test environment
     [Documentation]    Closes Browser
 
