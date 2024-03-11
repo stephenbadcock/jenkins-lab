@@ -8,7 +8,7 @@ Library    DateTime
 # Setup data
 ${selenium_speed}    0
 ${homepage_url}    https://rental4.infotiv.net/
-${browser}    Chrome
+${browser}    headlesschrome
 
 # Valid user data
 ${valid_user_email}    kungen@slottet.se

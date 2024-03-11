@@ -21,6 +21,13 @@ pipeline {
         stage('Post Test') {
             steps {
                 junit '**/TEST*.xml'
+
+                jacoco(
+                    execPattern: 'trailrunner/target/*.exec',
+                    classPattern: 'trailrunner/target/classes',
+                    sourcePattern: 'trailrunner/src/main/java',
+                    exclusionPattern: 'trailrunner/src/test*'
+                )                
             }
         }
 
@@ -35,7 +42,7 @@ pipeline {
                 always {
                     step([
                         $class              : 'RobotPublisher',
-                        outputPath          : 'Selenium/infotivCarRental',
+                        outputPath          : 'Selenium/infotivCarRental/test_results',
                         outputFileName      : "output.xml",
                         reportFileName      : 'report.html',
                         logFileName         : 'log.html',
