@@ -34,7 +34,7 @@ pipeline {
         stage('Run Robot and Post Test') {
             steps {
                 dir('Selenium/infotivCarRental') {
-                    bat script: 'robot --nostatusrc tests/carRental.robot', returnStatus: true
+                    bat 'robot --nostatusrc --outputdir test_results tests/carRental.robot'
                 }
             }
 
