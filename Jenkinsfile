@@ -26,8 +26,8 @@ pipeline {
 
         stage('Run Robot and Post Test') {
             steps {
-                dir('Selenium/infotivCarRental/tests') {
-                    bat script: 'robot --nostatusrc carRental.robot', returnStatus: true
+                dir('Selenium/infotivCarRental') {
+                    bat script: 'robot --nostatusrc tests/carRental.robot', returnStatus: true
                 }
             }
 
@@ -35,7 +35,7 @@ pipeline {
                 always {
                     step([
                         $class              : 'RobotPublisher',
-                        outputPath          : 'Selenium/infotivCarRental',
+                        outputPath          : '.',
                         outputFileName      : "output.xml",
                         reportFileName      : 'report.html',
                         logFileName         : 'log.html',
