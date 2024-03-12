@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    parameters {
+        choice(description: 'Choose branch in the Github repository https://github.com/stephenbadcock/jenkins-lab', name: 'githubBranch', choices: 'main\nb1')
+    }
+
     stages {
         stage('Build') {
             steps {
