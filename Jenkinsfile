@@ -2,10 +2,11 @@ pipeline {
     agent any
 
     parameters {
-        choice(
-            description: 'Choose branch in the Github repository https://github.com/stephenbadcock/jenkins-lab',
+        gitParameters(
+            branchFilter: 'origin/(.*)',
+            defaultValue: 'main',
             name: 'githubBranch',
-            choices: 'main\nb1'
+            description: 'Choose branch in the Github repository https://github.com/stephenbadcock/jenkins-lab'
         )
     }
 
