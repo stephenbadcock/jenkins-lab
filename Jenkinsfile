@@ -2,28 +2,26 @@ pipeline {
     agent any
 
     parameters {
-        choice(
-            description: 'Choose branch in the Github repository https://github.com/stephenbadcock/jenkins-lab',
+        gitParameter(
             name: 'githubBranch',
-            choices: 'main\nb1'
+            type: 'PT_BRANCH',            
+            branchFilter: 'origin/(.*)',
+            defaultValue: 'main',
+            description: 'Choose branch in the Github repository https://github.com/stephenbadcock/jenkins-lab'
         )
     }
 
     stages {
         stage('Build') {
             steps {
-                dir('trailrunner') {
-                    bat 'mvn clean'
-                    bat 'mvn compile'
-                }
+                bat 'mvn -f trailrunner/ clean'
+                bat 'mvn -f trailrunner/ compile'
             }
         }
 
         stage('Test') {
             steps {
-                dir('trailrunner') {
-                    bat 'mvn test'
-                }
+                bat 'mvn -f trailrunner/ test'
             }
         }
 
@@ -42,9 +40,7 @@ pipeline {
 
         stage('Run Robot and Post Test') {
             steps {
-                dir('Selenium/infotivCarRental') {
-                    bat 'robot --nostatusrc --outputdir test_results tests/carRental.robot'
-                }
+                bat 'robot --nostatusrc --outputdir Selenium/infotivCarRental/test_results Selenium/infotivCarRental/tests/carRental.robot'
             }
 
             post {
