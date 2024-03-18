@@ -3,9 +3,9 @@ pipeline {
 
     parameters {
         gitParameters(
+            name: 'githubBranch',            
             branchFilter: 'origin/(.*)',
             defaultValue: 'main',
-            name: 'githubBranch',
             description: 'Choose branch in the Github repository https://github.com/stephenbadcock/jenkins-lab'
         )
     }
@@ -13,18 +13,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                dir('trailrunner') {
-                    bat 'mvn clean'
-                    bat 'mvn compile'
-                }
+                bat 'mvn -f trailrunner/ clean'
+                bat 'mvn -f trailrunner/ compile'
             }
         }
 
         stage('Test') {
             steps {
-                dir('trailrunner') {
-                    bat 'mvn test'
-                }
+                bat 'mvn -f trailrunner/ test'
             }
         }
 
@@ -43,9 +39,7 @@ pipeline {
 
         stage('Run Robot and Post Test') {
             steps {
-                dir('Selenium/infotivCarRental') {
-                    bat 'robot --nostatusrc --outputdir test_results tests/carRental.robot'
-                }
+                bat 'robot --nostatusrc --outputdir Selenium/infotivCarRental/test_results Selenium/infotivCarRental/tests/carRental.robot'
             }
 
             post {
