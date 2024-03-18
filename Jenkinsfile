@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        gitParameters(
+        gitParameter(
             name: 'githubBranch',            
             branchFilter: 'origin/(.*)',
             defaultValue: 'main',
