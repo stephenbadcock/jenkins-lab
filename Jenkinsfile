@@ -1,16 +1,6 @@
 pipeline {
     agent any
 
-    parameters {
-        gitParameter(
-            name: 'githubBranch',
-            type: 'PT_BRANCH',            
-            branchFilter: 'origin/(.*)',
-            defaultValue: 'main',
-            description: 'Choose branch in the Github repository https://github.com/stephenbadcock/jenkins-lab'
-        )
-    }
-
     stages {
         stage('Build') {
             steps {
