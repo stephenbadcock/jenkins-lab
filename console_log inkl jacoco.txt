@@ -1,0 +1,275 @@
+Started by user admin
+Checking out git https://github.com/stephenbadcock/jenkins-lab into C:\Users\T440p\.jenkins\workspace\pollTest@script\a51ab7ece523214b1eeabc8e4a39bcdd3acc3af07c70dedb80cd675833774ce0 to read Jenkinsfile
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential 385c0839-877c-431d-921c-82f8a3a02ef3
+ > git.exe rev-parse --resolve-git-dir C:\Users\T440p\.jenkins\workspace\pollTest@script\a51ab7ece523214b1eeabc8e4a39bcdd3acc3af07c70dedb80cd675833774ce0\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/stephenbadcock/jenkins-lab # timeout=10
+Fetching upstream changes from https://github.com/stephenbadcock/jenkins-lab
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.42.0.windows.2'
+using GIT_ASKPASS to set credentials 
+ > git.exe fetch --tags --force --progress -- https://github.com/stephenbadcock/jenkins-lab +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/b1^{commit}" # timeout=10
+Checking out Revision 0be695d2bb5fe39b4ca3980c5149610d02911c22 (refs/remotes/origin/b1)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 0be695d2bb5fe39b4ca3980c5149610d02911c22 # timeout=10
+Commit message: "Sökvägar lagda i variabler"
+ > git.exe rev-list --no-walk ac506a2180c7dc21567dc1404439f8e203826f5e # timeout=10
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\Users\T440p\.jenkins\workspace\pollTest
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential 385c0839-877c-431d-921c-82f8a3a02ef3
+ > git.exe rev-parse --resolve-git-dir C:\Users\T440p\.jenkins\workspace\pollTest\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/stephenbadcock/jenkins-lab # timeout=10
+Fetching upstream changes from https://github.com/stephenbadcock/jenkins-lab
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.42.0.windows.2'
+using GIT_ASKPASS to set credentials 
+ > git.exe fetch --tags --force --progress -- https://github.com/stephenbadcock/jenkins-lab +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/b1^{commit}" # timeout=10
+Checking out Revision 0be695d2bb5fe39b4ca3980c5149610d02911c22 (refs/remotes/origin/b1)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 0be695d2bb5fe39b4ca3980c5149610d02911c22 # timeout=10
+Commit message: "Sökvägar lagda i variabler"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] bat
+
+C:\Users\T440p\.jenkins\workspace\pollTest>mvn -f trailrunner/ clean 
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< se.iths:trailrunner >-------------------------
+[INFO] Building trailrunner 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ trailrunner ---
+[INFO] Deleting C:\Users\T440p\.jenkins\workspace\pollTest\trailrunner\target
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.516 s
+[INFO] Finished at: 2024-03-21T16:23:49+01:00
+[INFO] ------------------------------------------------------------------------
+[Pipeline] bat
+
+C:\Users\T440p\.jenkins\workspace\pollTest>mvn -f trailrunner/ compile 
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< se.iths:trailrunner >-------------------------
+[INFO] Building trailrunner 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.11:prepare-agent (prepare-agent) @ trailrunner ---
+[INFO] argLine set to -javaagent:C:\\Users\\T440p\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.11\\org.jacoco.agent-0.8.11-runtime.jar=destfile=C:\\Users\\T440p\\.jenkins\\workspace\\pollTest\\trailrunner\\target\\jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ trailrunner ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\T440p\.jenkins\workspace\pollTest\trailrunner\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ trailrunner ---
+[INFO] Changes detected - recompiling the module! :source
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 4 source files with javac [debug target 1.8] to target\classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.944 s
+[INFO] Finished at: 2024-03-21T16:23:53+01:00
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] bat
+
+C:\Users\T440p\.jenkins\workspace\pollTest>mvn -f trailrunner/ test 
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< se.iths:trailrunner >-------------------------
+[INFO] Building trailrunner 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.11:prepare-agent (prepare-agent) @ trailrunner ---
+[INFO] argLine set to -javaagent:C:\\Users\\T440p\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.11\\org.jacoco.agent-0.8.11-runtime.jar=destfile=C:\\Users\\T440p\\.jenkins\\workspace\\pollTest\\trailrunner\\target\\jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ trailrunner ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\T440p\.jenkins\workspace\pollTest\trailrunner\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ trailrunner ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ trailrunner ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\T440p\.jenkins\workspace\pollTest\trailrunner\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ trailrunner ---
+[INFO] Changes detected - recompiling the module! :source
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 4 source files with javac [debug target 1.8] to target\test-classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- surefire:3.2.2:test (default-test) @ trailrunner ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running se.iths.MainMenuTest
+WARNING: A Java agent has been loaded dynamically (C:\Users\T440p\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+Ange löprundans distans: 
+Ange din vikt (kg): 
+Ange datumet för löprundan (YYYY-MM-DD): 
+Ange datumet för löprundan (YYYY-MM-DD): 
+Ange löprundans tid (H:M:S): 
+Ange din längd (cm): 
+Ange datumet för löprundan (YYYY-MM-DD): 
+Ange ID-numret på den löprundan du vill radera från historiken: 
+Ange ID-numret på den löprundan du vill se detaljer för: 
+Ange din längd (cm): 
+Ange din vikt (kg): 
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.838 s -- in se.iths.MainMenuTest
+[INFO] Running se.iths.RunLibraryTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 s -- in se.iths.RunLibraryTest
+[INFO] Running se.iths.RunTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in se.iths.RunTest
+[INFO] Running se.iths.UserTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in se.iths.UserTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.11:report (report) @ trailrunner ---
+[INFO] Loading execution data file C:\Users\T440p\.jenkins\workspace\pollTest\trailrunner\target\jacoco.exec
+[INFO] Analyzed bundle 'trailrunner' with 4 classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.257 s
+[INFO] Finished at: 2024-03-21T16:24:04+01:00
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Post Test)
+[Pipeline] junit
+Recording test results
+[Checks API] No suitable checks publisher found.
+[Pipeline] jacoco
+[JaCoCo plugin] Collecting JaCoCo coverage data...
+[JaCoCo plugin] Version: 3.3.5
+[JaCoCo plugin] trailrunner/target/*.exec;trailrunner/target/classes;trailrunner/src/main/java; locations are configured
+[JaCoCo plugin] Number of found exec files for pattern trailrunner/target/*.exec: 1
+[JaCoCo plugin] Saving matched execfiles:  C:\Users\T440p\.jenkins\workspace\pollTest\trailrunner\target\jacoco.exec
+[JaCoCo plugin] Saving matched class directories for class-pattern: trailrunner/target/classes: 
+[JaCoCo plugin]  - C:\Users\T440p\.jenkins\workspace\pollTest\trailrunner\target\classes 4 files
+[JaCoCo plugin] Saving matched source directories for source-pattern: trailrunner/src/main/java: 
+[JaCoCo plugin] Source Inclusions: **/*.java,**/*.groovy,**/*.kt,**/*.kts
+[JaCoCo plugin] Source Exclusions: 
+[JaCoCo plugin] - C:\Users\T440p\.jenkins\workspace\pollTest\trailrunner\src\main\java 4 files
+[JaCoCo plugin] Loading inclusions files..
+[JaCoCo plugin] inclusions: []
+[JaCoCo plugin] exclusions: [trailrunner/src/test*]
+[JaCoCo plugin] Thresholds: JacocoHealthReportThresholds [minClass=0, maxClass=0, minMethod=0, maxMethod=0, minLine=0, maxLine=0, minBranch=0, maxBranch=0, minInstruction=0, maxInstruction=0, minComplexity=0, maxComplexity=0]
+[JaCoCo plugin] Publishing the results..
+[JaCoCo plugin] Loading packages..
+[JaCoCo plugin] Done.
+[JaCoCo plugin] Overall coverage: class: 100.0, method: 100.0, line: 100.0, branch: 100.0, instruction: 100.0, complexity: 100.0
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Robot and Post Test)
+[Pipeline] bat
+
+C:\Users\T440p\.jenkins\workspace\pollTest>robot --nostatusrc --outputdir Selenium/infotivCarRental/test_results Selenium/infotivCarRental/tests/carRental.robot 
+==============================================================================
+carRental :: Tests for Infotiv's car rental site: https://rental4.infotiv.net/
+==============================================================================
+Scenario: User books a car                                            | PASS |
+------------------------------------------------------------------------------
+Scenario: User tries to log in with invalid credentials               | PASS |
+------------------------------------------------------------------------------
+Scenario: User tries to book car without being logged in              | PASS |
+------------------------------------------------------------------------------
+Scenario: User books a car and then cancels booking                   | PASS |
+------------------------------------------------------------------------------
+Scenario: User filters available cars by two makes                    | FAIL |
+Lists are different:
+Index 0: BBE465 != ['BBE465', 'BBE466', 'BBE467', 'IED923', 'OES930', 'ERB203', 'PRE392', 'GTE432', 'UBD738', 'DHW439', 'DQA442', 'UZO039']
+------------------------------------------------------------------------------
+Scenario: User filters available cars by two seating capacities       | FAIL |
+Lists are different:
+Index 0: CEA328 != ['GTE432', 'UBD738', 'CEA328', 'VQW952', 'DQA442', 'UZO039']
+------------------------------------------------------------------------------
+Scenario: User filters available cars by two makes and two seating... | FAIL |
+The actual cars displayed ['GTE432'] weren't the same as expected ['GTE432', 'UBD738', 'DQA442', 'UZO039', 'GTE432', 'UBD738', 'DQA442', 'UZO039']
+------------------------------------------------------------------------------
+Scenario: Checks if cars filtered by two makes are bookable           | FAIL |
+Found 0 elements with xpath=//input[@value='book'] instead of 1
+------------------------------------------------------------------------------
+Scenario: Checks if cars filtered by two seating capacities are bo... | FAIL |
+Found 0 elements with xpath=//input[@value='book'] instead of 1
+------------------------------------------------------------------------------
+Scenario: Checks if cars filtered by two makes and two seating cap... | FAIL |
+Found 0 elements with xpath=//input[@value='book'] instead of 1
+------------------------------------------------------------------------------
+carRental :: Tests for Infotiv's car rental site: https://rental4.... | FAIL |
+10 tests, 4 passed, 6 failed
+==============================================================================
+Output:  C:\Users\T440p\.jenkins\workspace\pollTest\Selenium\infotivCarRental\test_results\output.xml
+Log:     C:\Users\T440p\.jenkins\workspace\pollTest\Selenium\infotivCarRental\test_results\log.html
+Report:  C:\Users\T440p\.jenkins\workspace\pollTest\Selenium\infotivCarRental\test_results\report.html
+Post stage
+[Pipeline] step
+Robot results publisher started...
+INFO: Checking test criticality is deprecated and will be dropped in a future release!
+-Parsing output xml:
+Done!
+-Copying log files to build dir:
+Done!
+-Assigning results to build:
+Done!
+-Checking thresholds:
+Done!
+Done publishing Robot results.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: FAILURE

@@ -33,4 +33,10 @@ public class UserTest {
 
         assertEquals(21.6, userBMI);
     }
+
+    @Test
+    public void testUserweight2() {
+        user.setWeight(70);
+        assertEquals(71, user.getWeight());
+    }
 }  
